@@ -7,6 +7,14 @@ const app = express();
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Middleware para configurar los encabezados CORS
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'chrome-extension://cplcehkdfgmdjdepfjochpjicjplfbca');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    next();
+});
+
 app.post('/upload-image', (req, res) => {
     const { image } = req.body;
     // Aquí guardarías la imagen en tu servidor o almacenamiento en la nube
