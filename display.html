@@ -15,7 +15,7 @@
             if (imgSrc) {
                 document.getElementById('displayed-image').src = imgSrc;
                 messageElement.textContent = "Image successfully received and displayed.";
-                console.log("Image successfully received and displayed.");
+                console.log("Image successfully received and displayed:", imgSrc);
             } else {
                 document.body.innerHTML = '<p>No image found. Please go back and upload an image.</p>';
                 console.log("No image found in sessionStorage.");
