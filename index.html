@@ -23,18 +23,7 @@
     <h1>Snaman.xyz</h1>
     <div class="separator"></div>
     <p>Welcome to my page</p>
-    <div id="image-container"></div>
-
-    <script>
-        window.addEventListener('DOMContentLoaded', () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            const imageSrc = urlParams.get('image');
-            if (imageSrc) {
-                const img = new Image();
-                img.src = decodeURIComponent(imageSrc);
-                document.getElementById('image-container').appendChild(img);
-            }
-        });
-    </script>
+    <!-- Ruta de la imagen local -->
+    <img id="uploadedImage" src="C:\Users\cvill\Documents\ProyectoIA\Nodejs - v2\uploads\image.png" alt="Uploaded Image">
 </body>
 </html>
