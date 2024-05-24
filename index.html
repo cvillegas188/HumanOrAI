@@ -23,24 +23,18 @@
     <h1>Snaman.xyz</h1>
     <div class="separator"></div>
     <p>Welcome to my page</p>
-    <img id="uploadedImage" src="" alt="Uploaded Image">
+    <div id="image-container"></div>
+
     <script>
-        // Este script carga la imagen después de que la página haya cargado completamente
-        window.onload = function() {
-            fetch('http://localhost:3000/image.png') // Reemplaza la URL con la correcta si es diferente
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.blob();
-                })
-                .then(blob => {
-                    document.getElementById('uploadedImage').src = URL.createObjectURL(blob);
-                })
-                .catch(error => {
-                    console.error('Error fetching the image:', error);
-                });
-        };
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const imageSrc = urlParams.get('image');
+            if (imageSrc) {
+                const img = new Image();
+                img.src = decodeURIComponent(imageSrc);
+                document.getElementById('image-container').appendChild(img);
+            }
+        });
     </script>
 </body>
 </html>
