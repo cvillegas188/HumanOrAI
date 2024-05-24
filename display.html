@@ -7,13 +7,18 @@
 </head>
 <body>
     <img id="displayed-image" alt="Uploaded Image">
+    <p id="message"></p>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const imgSrc = sessionStorage.getItem('uploadedImage');
+            const messageElement = document.getElementById('message');
             if (imgSrc) {
                 document.getElementById('displayed-image').src = imgSrc;
+                messageElement.textContent = "Image successfully received and displayed.";
+                console.log("Image successfully received and displayed.");
             } else {
                 document.body.innerHTML = '<p>No image found. Please go back and upload an image.</p>';
+                console.log("No image found in sessionStorage.");
             }
         });
     </script>
