@@ -1,63 +1,27 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const path = require('path');
-
-const app = express();
-
-app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, 'public')));
-
-// Middleware para configurar los encabezados CORS
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'chrome-extension://cplcehkdfgmdjdepfjochpjicjplfbca/index.html');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    next();
-});
-
-app.post('/upload-image', (req, res) => {
-    const { image } = req.body;
-    // Aquí guardarías la imagen en tu servidor o almacenamiento en la nube
-    // Por simplicidad, simplemente responderemos con la URL de la imagen
-    const imageUrl = 'url_de_la_imagen_guardada';
-    res.json({ url: imageUrl });
-});
-
-app.get('/', (req, res) => {
-    const { image } = req.query;
-    res.send(`
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Welcome</title>
-            <style>
-                body {
-                    font-family: Arial, sans-serif;
-                    margin: 0;
-                    padding: 0;
-                    text-align: center;
-                    background-color: #646564;
-                    color: white;
-                }
-                .separator {
-                    border-top: 1px solid #ccc;
-                    margin: 20px 0;
-                }
-            </style>
-        </head>
-        <body>
-            <h1>Snaman.xyz</h1>
-            <div class="separator"></div>
-            <p>Welcome to my page</p>
-            <img src="${image}" alt="Uploaded Image">
-        </body>
-        </html>
-    `);
-});
-
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #646564; /* Color fondo */
+            color: white; /* Color texto */
+        }
+        .separator {
+            border-top: 1px solid #ccc;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Snaman.xyz</h1>
+    <div class="separator"></div>
+    <p>Welcome to my page</p>
+</body>
+</html>
