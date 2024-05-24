@@ -9,7 +9,7 @@
     <img id="displayed-image" alt="Uploaded Image">
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const imgSrc = localStorage.getItem('uploadedImage');
+            const imgSrc = sessionStorage.getItem('uploadedImage');
             if (imgSrc) {
                 document.getElementById('displayed-image').src = imgSrc;
             } else {
