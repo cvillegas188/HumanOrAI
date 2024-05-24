@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uploaded Image</title>
+</head>
+<body>
+    <img id="displayed-image" alt="Uploaded Image">
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const imgSrc = localStorage.getItem('uploadedImage');
+            if (imgSrc) {
+                document.getElementById('displayed-image').src = imgSrc;
+            } else {
+                document.body.innerHTML = '<p>No image found. Please go back and upload an image.</p>';
+            }
+        });
+    </script>
+</body>
+</html>
