@@ -1,59 +1,51 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página para inferencia simple</title>
+    <title>Mi Página Web</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #logo {
+            margin-top: 50px; /* Ajusta según sea necesario */
+        }
+        #logo img {
+            max-width: 400px; /* Ajusta el tamaño máximo del logo */
+            height: auto;
+        }
+        #uploadedImage {
+            max-width: 25%; /* Limita el tamaño máximo */
+            max-height: 80vh; /* Limita el tamaño máximo */
+            width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
 <body>
+    <div id="logo">
+        <img src="IconText.png" alt="Logo">
+    </div>
+    <div id="imageContainer">
+        <img id="uploadedImage" src="" alt="Imagen cargada">
+    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.12.0/dist/tf.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var image = document.getElementById("uploadedImage");
+            var timestamp = new Date().getTime(); // Obtiene la marca de tiempo actual
+            image.src = "https://storage.googleapis.com/humanorai-424318.appspot.com/image.png?" + timestamp;
 
-    <header>
-        <h1>Sistema de detección de animales</h1>
-    </header>
-
-    <main>
-        <div class="column">
-            <div id="container-input">
-                <img src="#" id="input_image" width="224" height="224">
-            </div>
-            <!-- Creación botones para subir y predicción-->    
-            <div id="container-button">
-                <div>	            
-                    <input type="file" name="fileupload" accept="image/*" onchange="display(event)">
-                    <p class="path">La URL de esta imagen es:</p>
-                </div>	
-                <div>			
-                    <input type="button" name="predict" onclick="predict_animal()" value="Predicción">
-                </div>
-            </div>
-        </div>
-        <div class="column">
-            <div id="container-output">
-                <div id="etiquetas de Objetos">
-                    <ul>
-                        <li>Ajolotes</li>
-                        <li>Ardilla</li>
-                        <li>Cubrebocas</li>
-                        <li>Orugas</li>
-                        <li>Tacos</li>
-                    </ul>
-                </div>		
-                <div id="output_text"></div>
-            </div>
-        </div>
-    </main>
-    
-
-    <footer>
-        <div>
-            <p>Tiempo transcurrido: <span id="tiempoTranscurrido"></span> segundos</p>
-        </div>
-    </footer>
-
-    <script src="./mis-scripts.js"></script>
+            image.onload = function() {
+                var containerWidth = document.getElementById("imageContainer").clientWidth;
+                this.style.width = containerWidth + "px";
+                this.style.height = "auto";
+            };
+        });
+    </script>
 </body>
 </html>
