@@ -14,10 +14,14 @@
         #logo {
             margin-top: 50px; /* Ajusta según sea necesario */
         }
+        #logo img {
+            max-width: 400px; /* Ajusta el tamaño máximo del logo */
+            height: auto;
+        }
         #uploadedImage {
-            max-width: 80%; /* Limita el tamaño máximo */
+            max-width: 25%; /* Limita el tamaño máximo */
             max-height: 80vh; /* Limita el tamaño máximo */
-            width: auto;
+            width: 100%;
             height: auto;
         }
     </style>
@@ -35,6 +39,12 @@
             var image = document.getElementById("uploadedImage");
             var timestamp = new Date().getTime(); // Obtiene la marca de tiempo actual
             image.src = "https://storage.googleapis.com/humanorai-424318.appspot.com/image.png?" + timestamp;
+
+            image.onload = function() {
+                var containerWidth = document.getElementById("imageContainer").clientWidth;
+                this.style.width = containerWidth + "px";
+                this.style.height = "auto";
+            };
         });
     </script>
 </body>
