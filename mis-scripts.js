@@ -23,7 +23,7 @@ async function predict_animal() {
     let imageproc = tf.browser.fromPixels(input).resizeNearestNeighbor([224,224]).expandDims(0).div(255.0);
     console.log("Finalización del preprocesamiento de la imagen");
 
-    const model = await tf.loadLayersModel('https://storage.googleapis.com/humanvsiamodel/model.json');
+    //const model = await tf.loadLayersModel('https://storage.googleapis.com/humanvsiamodel/model.json');
     const pred = model.predict(imageproc);
     console.log("Finalización de predicción");
 
