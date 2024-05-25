@@ -23,7 +23,14 @@
     <h1>Snaman.xyz</h1>
     <div class="separator"></div>
     <p>Welcome to my page</p>
-    <!-- Ruta de la imagen local -->
-    <img id="uploadedImage" src="https://storage.googleapis.com/humanorai-424318.appspot.com/image.png" alt="Uploaded Image">
+    <img id="uploadedImage" src="" alt="Uploaded Image">
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var image = document.getElementById("uploadedImage");
+            var timestamp = new Date().getTime(); // Obtiene la marca de tiempo actual
+            image.src = "https://storage.googleapis.com/humanorai-424318.appspot.com/image.png?" + timestamp;
+        });
+    </script>
 </body>
 </html>
