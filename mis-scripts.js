@@ -1,6 +1,6 @@
 // mis-scripts.js
 
-// Desplegar imagen subida por el usuario
+// Función para desplegar la imagen subida por el usuario
 function display(event) {
     let input_image = document.getElementById("input_image")
     input_image.src = URL.createObjectURL(event.target.files[0]);
@@ -9,13 +9,16 @@ function display(event) {
     d.textContent += input_image.src;        
 }
 
-// Mostrar a qué animal (clase) pertenece la imagen subida
+// Función para calcular el tiempo transcurrido desde startTime hasta ahora
 function calcularTiempoTranscurrido(startTime) {
     var currentTime = new Date().getTime();
     var elapsedTime = (currentTime - startTime) / 1000; // Tiempo en segundos
+
+    // Muestra el tiempo transcurrido en el elemento HTML
     document.getElementById("tiempoTranscurrido").innerText = elapsedTime.toFixed(2);
 }
 
+// Función asincrónica para predecir el animal
 async function predict_animal() {
     var startTime = new Date().getTime();
 
@@ -42,6 +45,6 @@ async function predict_animal() {
         }
         let ANIMAL_DETECTADO = animals[max_val_index];
         output.innerHTML = "<p>El Objeto detectado y su probabilidad corresponden a</p><p>Animal detectado: " + ANIMAL_DETECTADO + " ( " + (max_val * 100).toFixed(2) + "% probabilidad )</p>";
-        calcularTiempoTranscurrido(startTime);
+        calcularTiempoTranscurrido(startTime); // Llamada a la función para calcular el tiempo transcurrido
     });    
 }
