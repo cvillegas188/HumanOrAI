@@ -32,7 +32,7 @@ async function predict_animal()
     let imageproc = tf.browser.fromPixels(input).resizeNearestNeighbor([224,224]).expandDims(0).div(255.0)
 	console.log("Finalización del preprocesamiento de la imagen")
 
-    const model = await tf.loadLayersModel('./tensorflowjs-model/model.json');
+    const model = await tf.loadLayersModel('https://snaman.xyz/tensorflowjs-model/model.json');
     pred = model.predict(imageproc)
     pred.print()
     console.log("Finalización de predicción")
