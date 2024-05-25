@@ -1,0 +1,46 @@
+/* Estilos para el header */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Estilos para el footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
+/* Estilos para los contenedores */
+.container {
+    margin-bottom: 20px;
+    border: 0px solid #333;
+    padding: 10px;
+}
+
+#container-input,
+#container-button,
+#container-output {
+    background-color: #f0f0f0;
+    padding: 10px; /* Agregue padding alrededor del contenido */
+    border: 1px solid #ccc; /* Añadir borde para visualización */
+}
+
+main {
+    display: flex;
+    justify-content: space-between; /* Distribuir el espacio entre las columnas */
+}
+
+.column {
+    flex: 1; /* Que ambas columnas ocupen el mismo espacio */
+    padding: 0 5px; /* Espaciado entre el contenido y el borde de la columna */
+    box-sizing: border-box; /* Incluir el padding dentro del ancho y alto */
+    border: 1px solid #ccc; /* Borde para visualizar las columnas */
+}
