@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página para inferencia simple</title>
+</head>
+<body>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.12.0/dist/tf.min.js"></script>
+
+    <header>
+        <h1>Sistema de deteccion de animales</h1>
+    </header>
+
+    <main>
+        <div class="column">
+            <div id="container-input">
+                <img src="#" id="input_image" width="224" height="224">
+            </div>
+            <!-- Creación botones para subir y predicción-->    
+            <div id="container-button">
+                <div>	            
+                    <input type="file" name="fileupload" accept="image/*" onchange="display(event)">
+                    <p class="path">La URL de esta imagen es:</p>
+                </div>	
+                <div>			
+                    <input type="button" name="predict" onclick="predict_animal()" value="Predicción">
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div id="container-output">
+                <div id="etiquetas de Objetos">
+                    <ul>
+                        <li>Ajolotes</li>
+                        <li>Ardilla</li>
+                        <li>Cubrebocas</li>
+                        <li>Orugas</li>
+                        <li>Tacos</li>
+                    </ul>
+                </div>		
+                <div id="output_text"></div>
+            </div>
+        </div>
+    </main>
+    
+
+    <footer>
+        <div>
+            <p>Tiempo transcurrido: <span id="tiempoTranscurrido"></span> segundos</p>
+        </div>
+    </footer>
+
+    <script src="./mis-scripts.js"></script>
+</body>
+</html>
